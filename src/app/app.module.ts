@@ -10,7 +10,32 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserRegisterComponent } from './user-register/user-register.component';
+import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
+const myRoutes:Routes = [
+  {
+    path:"",
+    component:AdminLoginComponent
+  },
+  {
+    path:"userlogin",
+    component:UserLoginComponent
+  },
+  {
+    path:"userReg",
+    component:UserRegisterComponent
+  },
+  {
+    path:"dashboard",
+    component:DashBoardComponent
+  },
+  {
+    path:"userProfile",
+    component:UserProfileComponent
+  }
+]
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +49,10 @@ import { UserRegisterComponent } from './user-register/user-register.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    RouterModule.forRoot(myRoutes),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
